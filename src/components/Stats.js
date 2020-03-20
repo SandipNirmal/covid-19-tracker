@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Card from './Card';
+import Loader from './Loader';
 import useStats from '../hooks/useStats';
 
 function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
@@ -11,7 +12,7 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
       <h2 className="stats-title">{title}</h2>
 
       {error ? <h3>{error}</h3> : null}
-      {loading ? <h4>Loading...</h4> : null}
+      {loading ? <Loader /> : null}
 
       {stats ? (
         <>
@@ -21,7 +22,7 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
           </div>
           <div className="card-container">
             <Card
-              title="Confirmed"
+              title="Recovered"
               count={stats.recovered.value}
               total={stats.confirmed.value}
               variant="success"

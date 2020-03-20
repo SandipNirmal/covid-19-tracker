@@ -1,3 +1,12 @@
+:root {
+  --yellow: #ffa600;
+  --blac: #282f36;
+  --green: #008744;
+  --blue: #0057e7;
+  --red: #d62d20;
+  --white: #eee;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -68,15 +77,14 @@ footer {
 }
 
 .confirmed h5 {
-  font-weight: 400;
-  color: #757272;
-  font-size: 14px;
+  color: #767676;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .confirmed h3 {
   padding-left: 16px;
-  color: #6c757d;
-
+  color: rgb(251, 84, 43);
   font-size: 32px;
 }
 
@@ -91,4 +99,23 @@ footer {
   font-size: 24px;
   padding: 8px 16px 0 16px;
   font-weight: 400;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  border-top-color: var(--black);
+  animation: spin linear 1.2s infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
