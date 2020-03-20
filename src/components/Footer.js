@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer>
       <h6>
-        Built with React, using data from{' '}
+        Data Source: 
         <a href="https://covid19.mathdro.id/api.">
           https://covid19.mathdro.id/api.
         </a>
