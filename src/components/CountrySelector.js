@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 
 import Stats from './Stats';
-import { ISO3CountryCodes } from '../utils/countries';
+import { ISO3CountryCodes } from '../utils/utils';
 
 function CountrySelector() {
-  const [selectedCountryCode, setSelectedCountryCode] = useState('');
+  const [selectedCountryCode, setSelectedCountryCode] = useState('IND');
 
   return (
     <>
       <div className="selector">
         <select
+          className="select"
           onChange={e => {
             setSelectedCountryCode(e.target.value);
           }}
+          defaultValue={selectedCountryCode}
         >
           <option value="">Select Country</option>
           {Object.entries(ISO3CountryCodes).map(([code, country]) => (
-            <option key={code} value={code}>
+            <option
+              // defaultValue={selectedCountryCode}
+              key={code}
+              value={code}
+            >
               {country}
             </option>
           ))}

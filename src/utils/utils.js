@@ -1,3 +1,6 @@
+/**
+ * List of countries with ISO3 code
+ */
 export const ISO3CountryCodes = {
   AFG: 'Afghanistan',
   ALA: 'Aland Islands',
@@ -249,4 +252,52 @@ export const ISO3CountryCodes = {
   YEM: 'Yemen',
   ZMB: 'Zambia',
   ZWE: 'Zimbabwe'
+};
+
+/**
+ * Returns new array by combining proviences data for countries
+ *
+ * @param {Array} data
+ * @param {Array}
+ */
+export const combineCountryData = (data = []) => {
+  const countries = {};
+  // const global = {};
+
+  data.forEach(
+    ({
+      countryRegion: country,
+      lastUpdate,
+      confirmed,
+      recovered,
+      deaths,
+      active,
+      iso3
+    }) => {
+      if (countries[country]) {
+        countries[country].confirmed += confirmed;
+        countries[country].recovered += recovered;
+        countries[country].deaths += deaths;
+        countries[country].active += active;
+      } else {
+        countries[country] = {
+          country,
+          lastUpdate,
+          confirmed,
+          recovered,
+          deaths,
+          active,
+          iso3
+        };
+      }
+    }
+  );
+
+  return Object.keys(countries).map(country => countries[country]);
+};
+
+export const sortOptions = {
+  Confirmed: 'confirmed',
+  Recovered: 'recovered',
+  Deaths: 'deaths'
 };

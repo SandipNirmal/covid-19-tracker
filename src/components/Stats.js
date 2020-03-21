@@ -46,7 +46,7 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
               variant="success"
             />
             <Card
-              title="Death"
+              title="Deaths"
               count={stats.error ? 0 : stats.deaths.value}
               total={stats.error ? 0 : stats.confirmed.value}
               variant="danger"
