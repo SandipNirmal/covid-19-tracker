@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Stats, Header, Footer } from './components';
+import { Stats, Header, Footer, CountrySelector } from './components';
 
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <div className="container">
         <Stats title="Global" />
-        <Stats title="India" url='https://covid19.mathdro.id/api/countries/IN'/>
+        <CountrySelector />
       </div>
       <Footer />
     </>

@@ -14,23 +14,23 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
       {error ? <h3>{error}</h3> : null}
       {loading ? <Loader /> : null}
 
-      {stats ? (
+      {stats && !loading ? (
         <>
           <div className="confirmed">
             <h5>Total Confirmed</h5>
-            <h3>{stats.confirmed.value.toLocaleString()}</h3>
+            <h3>{stats.error ? 0 : stats.confirmed.value.toLocaleString()}</h3>
           </div>
           <div className="card-container">
             <Card
               title="Recovered"
-              count={stats.recovered.value}
-              total={stats.confirmed.value}
+              count={stats.error ? 0 : stats.recovered.value}
+              total={stats.error ? 0 : stats.confirmed.value}
               variant="success"
             />
             <Card
               title="Death"
-              count={stats.deaths.value}
-              total={stats.confirmed.value}
+              count={stats.error ? 0 : stats.deaths.value}
+              total={stats.error ? 0 : stats.confirmed.value}
               variant="danger"
             />
           </div>

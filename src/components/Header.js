@@ -4,7 +4,7 @@ function Header() {
   return (
     <header>
       <div>
-        <h3>Covid-19 Tracker</h3>
+        <h3>COVID-19 Tracker</h3>
       </div>
     </header>
   );

@@ -26,7 +26,7 @@ const getStyle = variant => {
 };
 
 function Card({ title, count, total, variant }) {
-  const percent = ((count / total) * 100).toFixed(2);
+  const percent = total ? ((count / total) * 100).toFixed(2) : 0;
 
   return (
     <div className="card" style={getStyle(variant)}>
