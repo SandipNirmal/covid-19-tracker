@@ -6,6 +6,15 @@ import useStats from '../hooks/useStats';
 
 function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
   const { stats, error, loading } = useStats(url);
+  const formatDate = date =>
+    new Date(date).toLocaleDateString('en-US', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric'
+    });
 
   return (
     <div className="stats-container">
@@ -16,9 +25,18 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
 
       {stats && !loading ? (
         <>
-          <div className="confirmed">
-            <h5>Total Confirmed</h5>
-            <h3>{stats.error ? 0 : stats.confirmed.value.toLocaleString()}</h3>
+          <div className="confirmed-container">
+            <div className="confirmed">
+              <h5>Total Confirmed</h5>
+              <h3>
+                {stats.error ? 0 : stats.confirmed.value.toLocaleString()}
+              </h3>
+            </div>
+            {stats.error ? null : (
+              <p className="last-updated">
+                Last Updated: {formatDate(stats.lastUpdate)}
+              </p>
+            )}
           </div>
           <div className="card-container">
             <Card

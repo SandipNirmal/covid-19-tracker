@@ -74,10 +74,13 @@ footer {
   font-weight: 500;
 }
 
+.confirmed-container {
+  padding-left: 16px;
+}
+
 .confirmed {
   display: flex;
   align-items: baseline;
-  padding-left: 16px;
 }
 
 .confirmed h5 {
@@ -103,6 +106,12 @@ footer {
   font-size: 24px;
   padding: 8px 16px 0 16px;
   font-weight: 400;
+}
+
+.last-updated {
+  color: #868686;
+  font-size: 12px;
+  padding-top: 0.25em;
 }
 
 .selector {
