@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import '../styles/tab.css';
+
 function Tab({ name, handleClick, selected }) {
   const classNames = selected
     ? 'tab-header-item tab-selected'

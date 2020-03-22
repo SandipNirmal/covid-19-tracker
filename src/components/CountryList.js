@@ -4,6 +4,8 @@ import useStats from '../hooks/useStats';
 import CountryItem from './CountryItem';
 import Loader from './Loader';
 
+import '../styles/list.css';
+
 import { combineCountryData, sortOptions } from '../utils/utils';
 
 function CountryList() {
@@ -16,8 +18,10 @@ function CountryList() {
   const hasError = error || stats ? stats.error : false;
 
   useEffect(() => {
-    setCountryWiseStats(combineCountryData(stats));
-    setUpdatedData(combineCountryData(stats));
+    const data = combineCountryData(stats);
+    const val = 'confirmed';
+    setCountryWiseStats(data);
+    setUpdatedData(data.sort((a, b) => b[val] - a[val]));
   }, [stats]);
 
   const sortByCategory = val => {

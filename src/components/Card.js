@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/card.css';
+
 const BACKGROUND_COLORS = {
   success: '#28a745',
   warning: '#ffc107',

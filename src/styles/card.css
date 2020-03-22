@@ -1,0 +1,45 @@
+.card {
+  min-width: 240px;
+  flex: 1;
+  margin: 8px 16px;
+  padding: 16px;
+  background: #f6f6f6;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+}
+
+.card-title {
+  font-weight: 500;
+}
+
+.confirmed-container {
+  padding-left: 16px;
+}
+
+.confirmed {
+  display: flex;
+  align-items: baseline;
+}
+
+.confirmed h5 {
+  color: #767676;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.confirmed h3 {
+  padding-left: 16px;
+  color: rgb(251, 84, 43);
+  font-size: 32px;
+}

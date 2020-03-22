@@ -1,6 +1,15 @@
 {
-  "short_name": "Covid-19 Tracker",
-  "name": "Covid-19 Tracker",
+  "short_name": "COVID-19 Tracker",
+  "name": "COVID-19 Tracker",
+  "author": "Sandip Nirmal",
+  "homepage_url": "http://sandipnirmal.github.io/covid-19-tracker",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

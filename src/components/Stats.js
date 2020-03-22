@@ -4,6 +4,8 @@ import Card from './Card';
 import Loader from './Loader';
 import useStats from '../hooks/useStats';
 
+import '../styles/stats.css';
+
 function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
   const { stats, error, loading } = useStats(url);
   const formatDate = date =>
