@@ -1,3 +1,12 @@
+const countries = {};
+const global = {
+  confirmed: 0,
+  recovered: 0,
+  deaths: 0,
+  active: 0,
+  lastUpdate: 0
+};
+
 /**
  * List of countries with ISO3 code
  */
@@ -261,8 +270,6 @@ export const ISO3CountryCodes = {
  * @param {Array}
  */
 export const combineCountryData = (data = []) => {
-  const countries = {};
-  const global = {};
   data.forEach(
     ({
       countryRegion: country,
@@ -277,6 +284,10 @@ export const combineCountryData = (data = []) => {
       global.recovered += recovered;
       global.deaths += deaths;
       global.active += active;
+
+      if (global.lastUpdate < lastUpdate) {
+        global.lastUpdate = lastUpdate;
+      }
 
       if (countries[country]) {
         countries[country].confirmed += confirmed;
@@ -296,6 +307,9 @@ export const combineCountryData = (data = []) => {
       }
     }
   );
+
+  console.log('global', global);
+  console.log('countries', countries);
 
   return {
     global,
