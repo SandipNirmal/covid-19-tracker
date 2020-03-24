@@ -1,3 +1,17 @@
-# Covid-19 Stats Tracker
+# COVID-19 Coronavirus Pandemic Stats Tracker
 
-Covid-19 App Tracker built with React using API from https://covid19.mathdro.id/api. You can find more details about this here https://github.com/mathdroid/covid-19-api.
+COVID-19 Coronavirus Pandemic stats Tracker built with React using data from John Hopkins University. Using REST API provided by https://covid19.mathdro.id/api.
+
+## Screeshots
+
+
+### Potrait
+![Potrait Country Selection](https://github.com/SandipNirmal/covid-19-tracker/blob/master/screenshots/screenshot_potrait_selection.png) ![Potrait Country List](https://github.com/SandipNirmal/covid-19-tracker/blob/master/screenshots/screenshot_potrait_country_list.png)
+
+
+### Landscape
+
+
+![Landscape View (Tablet/Desktop)](https://github.com/SandipNirmal/covid-19-tracker/blob/master/screenshots/screenshot_landscape.png)
+
+
