@@ -5,7 +5,7 @@ function Footer() {
     <footer>
       <h6>
         Data Source: 
-        <a href="https://covid19.mathdro.id/api.">
+        <a href="https://covid19.mathdro.id/api">
           https://covid19.mathdro.id/api.
         </a>
       </h6>
