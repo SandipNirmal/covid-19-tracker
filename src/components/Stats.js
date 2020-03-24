@@ -22,10 +22,10 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
     <div className="stats-container">
       <h2 className="stats-title">{title}</h2>
 
-      {error ? <h3>{error}</h3> : null}
+      {error ? <h4 className="error">{error}</h4> : null}
       {loading ? <Loader /> : null}
 
-      {stats && !loading ? (
+      {stats && !loading && !error ? (
         <>
           <div className="confirmed-container">
             <div className="confirmed">

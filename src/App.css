@@ -60,6 +60,10 @@ footer {
   margin: 16px auto;
 }
 
+.error {
+  margin: 32px 16px;
+}
+
 .select {
   font-size: 1em;
   margin: 0.5em 1em 0;

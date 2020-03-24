@@ -12,9 +12,10 @@ function useStats(url) {
       const data = await fetch(url)
         .then(res => res.json())
         .catch(err => {
-          setError(err);
+          setError(err || 'Failed to load data!');
         });
-      setStats(data);
+      data && setStats(data);
+      setError('Failed to load data!');
       setLoading(false);
     }
     fetchData();
