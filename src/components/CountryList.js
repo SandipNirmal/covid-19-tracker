@@ -18,7 +18,7 @@ function CountryList() {
   const hasError = error || stats ? stats.error : false;
 
   useEffect(() => {
-    const data = combineCountryData(stats);
+    const { countries: data } = combineCountryData(stats);
     const val = 'confirmed';
     setCountryWiseStats(data);
     setUpdatedData(data.sort((a, b) => b[val] - a[val]));
@@ -33,7 +33,7 @@ function CountryList() {
     const data = countryWiseStats.slice();
     setUpdatedData(
       data.filter(({ country }) =>
-        country.toLowerCase().includes(val.toLowerCase())
+        country.toLowerCase().includes(val.toLowerCase().trim())
       )
     );
   };

@@ -262,8 +262,7 @@ export const ISO3CountryCodes = {
  */
 export const combineCountryData = (data = []) => {
   const countries = {};
-  // const global = {};
-
+  const global = {};
   data.forEach(
     ({
       countryRegion: country,
@@ -274,6 +273,11 @@ export const combineCountryData = (data = []) => {
       active,
       iso3
     }) => {
+      global.confirmed += confirmed;
+      global.recovered += recovered;
+      global.deaths += deaths;
+      global.active += active;
+
       if (countries[country]) {
         countries[country].confirmed += confirmed;
         countries[country].recovered += recovered;
@@ -293,7 +297,10 @@ export const combineCountryData = (data = []) => {
     }
   );
 
-  return Object.keys(countries).map(country => countries[country]);
+  return {
+    global,
+    countries: Object.keys(countries).map(country => countries[country])
+  };
 };
 
 export const sortOptions = {
