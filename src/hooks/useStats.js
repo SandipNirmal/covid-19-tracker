@@ -14,8 +14,7 @@ function useStats(url) {
         .catch(err => {
           setError(err || 'Failed to load data!');
         });
-      data && setStats(data);
-      setError('Failed to load data!');
+      data ? setStats(data) : setError('Failed to load data!');
       setLoading(false);
     }
     fetchData();
