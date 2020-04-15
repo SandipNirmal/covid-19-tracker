@@ -2,6 +2,8 @@
 
 COVID-19 Coronavirus Pandemic stats Tracker built with React using data from John Hopkins University. Using REST API provided by https://covid19.mathdro.id/api.
 
+![Deployment](https://github.com/SandipNirmal/covid-19-tracker/workflows/Node.js%20CI/badge.svg)
+
 ## Screeshots
 
 
