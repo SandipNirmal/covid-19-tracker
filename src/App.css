@@ -60,6 +60,10 @@ footer {
   margin: 16px auto;
 }
 
+.selector label {
+  padding-left: 0.8em;
+}
+
 .error {
   margin: 32px 16px;
 }
@@ -79,6 +83,10 @@ footer {
 
 input.select {
   max-width: 50vw;
+}
+
+.select:focus {
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .spinner {

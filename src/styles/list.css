@@ -45,11 +45,11 @@
   text-overflow: ellipsis;
 }
 .color-confirmed {
-  color: rgb(251, 84, 43);
+  color: rgba(200, 56, 13, 0.91);
 }
 
 .color-recovered {
-  color: #28a745;
+  color: #178831;
 }
 
 .color-deaths {

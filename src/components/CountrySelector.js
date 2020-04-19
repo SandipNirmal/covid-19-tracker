@@ -9,9 +9,11 @@ function CountrySelector() {
   return (
     <>
       <div className="selector">
+        <label htmlFor="country">Select Country:</label>
         <select
+          id="country"
           className="select"
-          onChange={e => {
+          onChange={(e) => {
             setSelectedCountryCode(e.target.value);
           }}
           defaultValue={selectedCountryCode}

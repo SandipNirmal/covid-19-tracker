@@ -1,9 +1,9 @@
 import React from 'react';
 
-function CountItem({ count, type }) {
+function CountItem({ count = 0, type }) {
   return (
     <div>
-      <h5 className={`color-${type}`}>{count}</h5>
+      <h5 className={`color-${type}`}>{count.toLocaleString()}</h5>
       <p>{type}</p>
     </div>
   );

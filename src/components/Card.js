@@ -4,6 +4,7 @@ import '../styles/card.css';
 
 const BACKGROUND_COLORS = {
   success: '#28a745',
+  // success: '#009933',
   warning: '#ffc107',
   info: '#17a2b8',
   // danger: '#dc3545'

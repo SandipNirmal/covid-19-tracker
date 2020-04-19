@@ -8,9 +8,9 @@ function Tab({ name, handleClick, selected }) {
     : 'tab-header-item';
 
   return (
-    <div onClick={handleClick} className={classNames}>
+    <button onClick={handleClick} className={classNames}>
       {name}
-    </div>
+    </button>
   );
 }
 

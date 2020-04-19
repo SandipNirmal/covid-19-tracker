@@ -5,10 +5,20 @@
   margin: 8px auto;
   padding: 0 16px;
 }
+
 .tab-header-item {
-  padding: 0.5em 1em;
+  padding: 0.5em 2em;
+  border: 0;
   border-bottom: 2px solid transparent;
+  font-size: 14px;
 }
+
+.tab-header-item:focus,
+.tab-header-item:hover {
+  border-color: #999999;
+}
+
+.tab-header-item:active,
 .tab-selected {
   border-color: var(--black);
   background-color: rgb(248, 248, 248);
