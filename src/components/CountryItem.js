@@ -1,13 +1,13 @@
 import React from 'react';
 
-function CountItem({ count = 0, type }) {
+const CountItem = React.memo(({ count = 0, type }) => {
   return (
     <div>
       <h5 className={`color-${type}`}>{count.toLocaleString()}</h5>
       <p>{type}</p>
     </div>
   );
-}
+});
 
 function CountryItem({ title, count: { confirmed, recovered, deaths } }) {
   return (
@@ -24,4 +24,4 @@ function CountryItem({ title, count: { confirmed, recovered, deaths } }) {
   );
 }
 
-export default CountryItem;
+export default React.memo(CountryItem);

@@ -8,14 +8,14 @@ import '../styles/stats.css';
 
 function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
   const { stats, error, loading } = useStats(url);
-  const formatDate = date =>
+  const formatDate = (date) =>
     new Date(date).toLocaleDateString('en-US', {
       weekday: 'short',
       year: 'numeric',
       month: 'short',
       day: 'numeric',
       hour: 'numeric',
-      minute: 'numeric'
+      minute: 'numeric',
     });
 
   return (
@@ -60,4 +60,4 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
   );
 }
 
-export default Stats;
+export default React.memo(Stats);
