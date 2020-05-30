@@ -17,7 +17,7 @@ function CountryItem({ title, count: { confirmed, recovered, deaths } }) {
       </div>
       <div className="count">
         <CountItem count={confirmed} type="confirmed" />
-        <CountItem count={recovered} type="recovered" />
+        <CountItem count={recovered || 'NA'} type="recovered" />
         <CountItem count={deaths} type="deaths" />
       </div>
     </div>

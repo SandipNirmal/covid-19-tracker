@@ -19,6 +19,10 @@
   padding-top: 16px;
 }
 
+.card-info h2 {
+  padding-right: 8px;
+}
+
 .card-title {
   font-weight: 600;
 }
@@ -38,8 +42,15 @@
   text-transform: uppercase;
 }
 
-.confirmed h3 {
+.confirmed .numbers {
   padding-left: 16px;
   color: rgb(251, 84, 43);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.confirmed .numbers h3 {
   font-size: 32px;
+  padding-right: 8px;
 }

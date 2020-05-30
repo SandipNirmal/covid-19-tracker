@@ -49,6 +49,22 @@ footer {
   padding-bottom: 32px;
 }
 
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
 .container {
   max-width: 980px;
   margin: 96px auto 48px auto;

@@ -8,7 +8,7 @@ const BACKGROUND_COLORS = {
   warning: '#ffc107',
   info: '#17a2b8',
   // danger: '#dc3545'
-  danger: '#282f36'
+  danger: '#282f36',
 };
 
 const COLORS = {
@@ -16,19 +16,19 @@ const COLORS = {
   warning: '#ffffff',
   info: '#ffffff',
   danger: '#ffffff',
-  dark: '#282f36'
+  dark: '#282f36',
 };
 
-const getStyle = variant => {
+const getStyle = (variant) => {
   return variant
     ? {
         backgroundColor: BACKGROUND_COLORS[variant] || '#f6f6f6',
-        color: COLORS[variant] || COLORS.dark
+        color: COLORS[variant] || COLORS.dark,
       }
     : {};
 };
 
-function Card({ title, count, total, variant }) {
+function Card({ title, count, total, variant, increase }) {
   const percent = total ? ((count / total) * 100).toFixed(2) : 0;
 
   return (
@@ -36,7 +36,14 @@ function Card({ title, count, total, variant }) {
       <h3 className="card-title">{title}</h3>
 
       <div className="card-info">
-        <h2 className="count">{count.toLocaleString()}</h2>
+        <div className="flex align-center wrap">
+          <h2 className="count">{count.toLocaleString()}</h2>
+          {increase ? (
+            <span>
+              ( ↑ {increase} )
+            </span>
+          ) : null}
+        </div>
         <h2 className="count">{`${percent}%`}</h2>
       </div>
     </div>

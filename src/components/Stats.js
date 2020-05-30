@@ -6,7 +6,11 @@ import useStats from '../hooks/useStats';
 
 import '../styles/stats.css';
 
-function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
+function Stats({
+  title,
+  url = 'https://covid19.mathdro.id/api',
+  previousDay: { confirmed, deaths } = {},
+}) {
   const { stats, error, loading } = useStats(url);
   const formatDate = (date) =>
     new Date(date).toLocaleDateString('en-US', {
@@ -30,9 +34,16 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
           <div className="confirmed-container">
             <div className="confirmed">
               <h5>Total Confirmed</h5>
-              <h3>
-                {stats.error ? 0 : stats.confirmed.value.toLocaleString()}
-              </h3>
+              <div className="numbers">
+                <h3>
+                  {stats.error ? 0 : stats.confirmed.value.toLocaleString()}
+                </h3>
+                {confirmed ? (
+                  <span>
+                    ( ↑ {(stats.confirmed.value - confirmed).toLocaleString()} )
+                  </span>
+                ) : null}
+              </div>
             </div>
             {stats.error ? null : (
               <p className="last-updated">
@@ -50,6 +61,7 @@ function Stats({ title, url = 'https://covid19.mathdro.id/api' }) {
             <Card
               title="Deaths"
               count={stats.error ? 0 : stats.deaths.value}
+              increase={deaths && (stats.deaths.value - deaths).toLocaleString()}
               total={stats.error ? 0 : stats.confirmed.value}
               variant="danger"
             />
