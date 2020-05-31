@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import useStats from '../hooks/useStats';
 import CountryItem from './CountryItem';
 import Loader from './Loader';
+import { CACHE_EXPIRY } from '../utils/response';
 
 import '../styles/list.css';
 
@@ -10,7 +11,8 @@ import { combineCountryData, sortOptions } from '../utils/utils';
 
 function CountryList() {
   const { stats, loading, error } = useStats(
-    'https://covid19.mathdro.id/api/confirmed'
+    'https://covid19.mathdro.id/api/confirmed',
+    CACHE_EXPIRY * 3
   );
   const [countryWiseStats, setCountryWiseStats] = useState([]);
   const [updatedData, setUpdatedData] = useState([]);
@@ -24,12 +26,12 @@ function CountryList() {
     setUpdatedData(data.sort((a, b) => b[val] - a[val]));
   }, [stats]);
 
-  const sortByCategory = val => {
+  const sortByCategory = (val) => {
     const data = countryWiseStats.slice();
     setUpdatedData(data.sort((a, b) => b[val] - a[val]));
   };
 
-  const filterByCountry = val => {
+  const filterByCountry = (val) => {
     const data = countryWiseStats.slice();
     setUpdatedData(
       data.filter(({ country }) =>
@@ -51,7 +53,7 @@ function CountryList() {
               <select
                 id="countries"
                 className="select"
-                onChange={e => {
+                onChange={(e) => {
                   sortByCategory(e.target.value);
                 }}
               >
@@ -68,7 +70,7 @@ function CountryList() {
               <input
                 className="select"
                 id="country"
-                onChange={e => {
+                onChange={(e) => {
                   filterByCountry(e.target.value);
                 }}
               />
@@ -85,7 +87,7 @@ function CountryList() {
               recovered,
               deaths,
               active,
-              iso3
+              iso3,
             }) => (
               <CountryItem
                 title={country}

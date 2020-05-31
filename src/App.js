@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
-import {
-  Stats,
-  Header,
-  Footer,
-  CountrySelector,
-  CountryList,
-  Tabs,
-} from './components';
+import { Stats, Header, Footer, Tabs } from './components';
 import useStats from './hooks/useStats';
 
 import './App.css';
 
+const CountryList = lazy(() => import('./components/CountryList'));
+const CountrySelector = lazy(() => import('./components/CountrySelector'));
+
 function App() {
   const tabs = [
-    { name: 'Country List', component: <CountryList /> },
+    {
+      name: 'Country List',
+      component: (
+        <Suspense fallback={<div>Loading...</div>}>
+          <CountryList />
+        </Suspense>
+      ),
+    },
     {
       name: 'Country Select',
-      component: <CountrySelector />,
+      component: (
+        <Suspense fallback={<div>Loading...</div>}>
+          <CountrySelector />
+        </Suspense>
+      ),
     },
   ];
 

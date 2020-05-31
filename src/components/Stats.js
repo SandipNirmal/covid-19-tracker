@@ -3,6 +3,7 @@ import React from 'react';
 import Card from './Card';
 import Loader from './Loader';
 import useStats from '../hooks/useStats';
+import { CACHE_EXPIRY } from '../utils/response';
 
 import '../styles/stats.css';
 
@@ -11,7 +12,7 @@ function Stats({
   url = 'https://covid19.mathdro.id/api',
   previousDay: { confirmed, deaths } = {},
 }) {
-  const { stats, error, loading } = useStats(url);
+  const { stats, error, loading } = useStats(url, CACHE_EXPIRY * 3);
   const formatDate = (date) =>
     new Date(date).toLocaleDateString('en-US', {
       weekday: 'short',
@@ -61,7 +62,9 @@ function Stats({
             <Card
               title="Deaths"
               count={stats.error ? 0 : stats.deaths.value}
-              increase={deaths && (stats.deaths.value - deaths).toLocaleString()}
+              increase={
+                deaths && (stats.deaths.value - deaths).toLocaleString()
+              }
               total={stats.error ? 0 : stats.confirmed.value}
               variant="danger"
             />

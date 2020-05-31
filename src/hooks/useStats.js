@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
-function useStats(url) {
+import { responseCache, CACHE_EXPIRY } from '../utils/response';
+
+function useStats(url, EXPIRY = CACHE_EXPIRY) {
   const [stats, setStats] = useState();
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
@@ -9,21 +11,36 @@ function useStats(url) {
     async function fetchData() {
       setLoading(true);
       setError();
-      const data = await fetch(url)
-        .then(res => res.json())
-        .catch(err => {
-          setError(err || 'Failed to load data!');
-        });
-      data ? setStats(data) : setError('Failed to load data!');
-      setLoading(false);
+
+      if (responseCache[url] && responseCache[url].expiry > Date.now()) {
+        setStats(responseCache[url].data);
+        setLoading(false);
+      } else {
+        const data = await fetch(url)
+          .then((res) => res.json())
+          .catch((err) => {
+            setError(err || 'Failed to load data!');
+          });
+
+        if (data) {
+          setStats(data);
+          responseCache[url] = {
+            data,
+            expiry: Date.now() + EXPIRY,
+          };
+        } else {
+          setError('Failed to load data!');
+        }
+        setLoading(false);
+      }
     }
     fetchData();
-  }, [url]);
+  }, [url, EXPIRY]);
 
   return {
     stats,
     loading,
-    error
+    error,
   };
 }
 
