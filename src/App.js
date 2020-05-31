@@ -14,11 +14,11 @@ import './App.css';
 
 function App() {
   const tabs = [
+    { name: 'Country List', component: <CountryList /> },
     {
       name: 'Country Select',
       component: <CountrySelector />,
     },
-    { name: 'Country List', component: <CountryList /> },
   ];
 
   const { stats } = useStats('https://covid19.mathdro.id/api/daily');

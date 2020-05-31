@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 
 import Stats from './Stats';
-import { ISO3CountryCodes } from '../utils/utils';
+import {
+  ISO3CountryCodes,
+  getSelectedCountry,
+  setSelectedCountry,
+} from '../utils';
 
 function CountrySelector() {
-  const [selectedCountryCode, setSelectedCountryCode] = useState('IND');
+  const [selectedCountryCode, setSelectedCountryCode] = useState(
+    getSelectedCountry() || 'IND'
+  );
 
   return (
     <>
@@ -15,6 +21,7 @@ function CountrySelector() {
           className="select"
           onChange={(e) => {
             setSelectedCountryCode(e.target.value);
+            setSelectedCountry(e.target.value)
           }}
           defaultValue={selectedCountryCode}
         >
