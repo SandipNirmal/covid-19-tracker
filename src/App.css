@@ -28,6 +28,7 @@ header {
   width: 100vw;
   top: 0;
   background: #ffffff;
+  z-index: 100;
 }
 
 header div {

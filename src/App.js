@@ -1,6 +1,11 @@
 import React, { lazy, Suspense } from 'react';
 
-import { Stats, Header, Footer, Tabs } from './components';
+import {
+  Stats,
+  Header,
+  //  Footer,
+  Tabs,
+} from './components';
 import useStats from './hooks/useStats';
 
 import './App.css';
@@ -47,7 +52,7 @@ function App() {
         <Stats title="Global" previousDay={daily} />
         <Tabs tabs={tabs} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

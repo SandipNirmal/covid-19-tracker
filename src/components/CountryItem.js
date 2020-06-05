@@ -9,9 +9,13 @@ const CountItem = React.memo(({ count = 0, type }) => {
   );
 });
 
-function CountryItem({ title, count: { confirmed, recovered, deaths } }) {
+function CountryItem({
+  style,
+  title,
+  count: { confirmed, recovered, deaths },
+}) {
   return (
-    <div className="list-item">
+    <div style={style} className="list-item">
       <div className="title">
         <h5>{title}</h5>
       </div>

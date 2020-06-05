@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FixedSizeList } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
 
 import useStats from '../hooks/useStats';
 import CountryItem from './CountryItem';
@@ -37,6 +39,19 @@ function CountryList() {
       data.filter(({ country }) =>
         country.toLowerCase().includes(val.toLowerCase().trim())
       )
+    );
+  };
+
+  const CountryRow = ({ index, style }) => {
+    const { country, confirmed, recovered, deaths } = updatedData[index];
+
+    return (
+      <CountryItem
+        title={country}
+        count={{ confirmed, recovered, deaths }}
+        key={country}
+        style={style}
+      />
     );
   };
 
@@ -79,23 +94,20 @@ function CountryList() {
           <p className="info">
             Total Affected Countries: <b>{countryWiseStats.length}</b>
           </p>
-          {updatedData.map(
-            ({
-              country,
-              lastUpdate,
-              confirmed,
-              recovered,
-              deaths,
-              active,
-              iso3,
-            }) => (
-              <CountryItem
-                title={country}
-                count={{ confirmed, recovered, deaths }}
-                key={country}
-              />
-            )
-          )}
+
+          <AutoSizer>
+            {({ height, width }) => (
+              <FixedSizeList
+                height={500}
+                width={width}
+                itemSize={width > 480 ? 50 : 70}
+                itemCount={updatedData.length}
+                className="list-container"
+              >
+                {CountryRow}
+              </FixedSizeList>
+            )}
+          </AutoSizer>
         </>
       ) : hasError ? (
         <h5>Error Loading Data.</h5>
