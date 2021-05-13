@@ -38,11 +38,11 @@ function Card({ title, count, total, variant, increase }) {
       <div className="card-info">
         <div className="flex align-center wrap">
           <h2 className="count">{count.toLocaleString()}</h2>
-          {increase ? (
-            <span>
-              ( ↑ {increase} )
-            </span>
-          ) : null}
+//           {increase ? (
+//             <span>
+//               ( ↑ {increase} )
+//             </span>
+//           ) : null}
         </div>
         <h2 className="count">{`${percent}%`}</h2>
       </div>
