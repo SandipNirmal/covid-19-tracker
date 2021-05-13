@@ -39,11 +39,11 @@ function Stats({
                 <h3>
                   {stats.error ? 0 : stats.confirmed.value.toLocaleString()}
                 </h3>
-//                 {confirmed ? (
-//                   <span>
-//                     ( ↑ {(stats.confirmed.value - confirmed).toLocaleString()} )
-//                   </span>
-//                 ) : null}
+                {/*confirmed ? (
+                  <span>
+                    ( ↑ {(stats.confirmed.value - confirmed).toLocaleString()} )
+                  </span>
+                ) : null*/}
               </div>
             </div>
             {stats.error ? null : (
